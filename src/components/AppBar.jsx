@@ -6,21 +6,7 @@ import styled from 'styled-components'
 import SearchIcon from '@mui/icons-material/Search';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { Container, Typography, TextField, InputAdornment, Box, Badge, IconButton, Menu, MenuItem } from '@mui/material';
-
-const StyledContainer = st(Container)(({theme}) => ({
-    height: "60px", 
-    backgroundColor: "#3F50B6",
-    position: "fixed",
-    top: "0",
-    left: "0",
-    right: "0",
-    zIndex: "1",
-    color: "#fff",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between"
-}))
+import { Typography, TextField, InputAdornment, Box, Badge, IconButton, Menu, MenuItem } from '@mui/material';
 
 const StyledTextField = st(TextField)(({theme}) => ({
     backgroundColor: "#5D6AC1",
@@ -39,6 +25,20 @@ const Img = styled.img`
     width: 40px;
     height: 40px;
     border-radius: 100%;
+`
+const Container = styled.div`
+    height: 60px; 
+    padding: 0 20px; 
+    background-color: #3F50B6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `
 
 const AppBar = () => {
@@ -76,7 +76,7 @@ const AppBar = () => {
     )
 
     return ( 
-        <StyledContainer>
+        <Container>
             <Typography variant="h6" component="h4">Elias Dev</Typography>
 
             <StyledTextField 
@@ -106,9 +106,10 @@ const AppBar = () => {
                 </IconButton>
                
             </Box>
+            
             { renderMenu }
 
-        </StyledContainer>    
+        </Container>    
     )
 }
 

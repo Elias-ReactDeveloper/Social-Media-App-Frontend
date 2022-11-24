@@ -1,22 +1,21 @@
-import { Container } from "@mui/material"
-
-import Post from "./components/Post"
+import Posts from "./components/Posts/Posts"
 import AppBar from "./components/AppBar"
 import RightMenu from "./components/RightMenu/RightMenu"
+import LeftMenu from "./components/LeftMenu/LeftMenu"
 
 function App() {
   return (
     <div className="App">
-      <AppBar />
+      <div style={{ marginBottom: "60px" }}>
+        <AppBar />
+      </div>
       <RightMenu />
-      <Container sx={{width: 700, marginTop: "80px"}}>
-        <Post />
-        <Post />
-        <Post />
-      </Container>
-
+      <LeftMenu />
+      <Posts />
     </div>
   )
 }
 
 export default App
+
+
