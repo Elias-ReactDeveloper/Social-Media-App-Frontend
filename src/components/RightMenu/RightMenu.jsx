@@ -23,5 +23,9 @@ const Container = styled.div`
     gap: 20px;
     color: #737273;
 
-    
+    @media(max-width: 900px) {
+        & {
+            display: none;
+        }
+    }
 `

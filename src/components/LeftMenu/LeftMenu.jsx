@@ -41,5 +41,11 @@ const Container = styled.div`
     top: 60px;
     left: 0;
     bottom: 0;
+
+    @media(max-width: 900px) {
+        & {
+            width: 90px;
+        }
+    }
 `
 

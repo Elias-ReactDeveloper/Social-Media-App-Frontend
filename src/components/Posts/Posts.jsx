@@ -13,10 +13,14 @@ const Posts = () => {
 export default Posts;
 
 const Container = styled.div`
-  width: 700px;
-  margin-left : 250px;
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    width: calc(100% - 580px); /* - right e left menu*/
+    margin-left : 260px;
+    padding-top: 20px;
+
+    @media(max-width: 900px) {
+        & {
+            width: calc(100% - 110px); /* - responsive left menu*/
+            margin-left : 100px;
+        }
+    }
 `

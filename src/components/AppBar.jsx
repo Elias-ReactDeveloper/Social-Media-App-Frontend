@@ -8,38 +8,10 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { Typography, TextField, InputAdornment, Box, Badge, IconButton, Menu, MenuItem } from '@mui/material';
 
-const StyledTextField = st(TextField)(({theme}) => ({
-    backgroundColor: "#5D6AC1",
-    width: "500px",
-    borderRadius: "5px",
-    color: "#fff",
-}))
-
 const StyledSearchIcon = st(SearchIcon)(({theme}) => ({
     color: "#fff"
 }))
 
-
-/* styled components*/ 
-const Img = styled.img`
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-`
-const Container = styled.div`
-    height: 60px; 
-    padding: 0 20px; 
-    background-color: #3F50B6;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-`
 
 const AppBar = () => {
     const [anchorEl, setAnchorEl] = useState(null) 
@@ -83,7 +55,7 @@ const AppBar = () => {
                 placeholder='Search...'
                 size="small"
                 InputProps={{
-                    style: { color: "#fff" },
+                    style: { color: "#fff"},
                     startAdornment: <InputAdornment position="start">
                         <StyledSearchIcon />
                     </InputAdornment>,
@@ -114,3 +86,34 @@ const AppBar = () => {
 }
 
 export default AppBar
+
+const Img = styled.img`
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+`
+const Container = styled.div`
+    height: 60px; 
+    padding: 0 20px; 
+    background-color: #3F50B6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`
+
+const StyledTextField = styled(TextField)`
+    background-color: #5D6AC1;
+    width: 500px;
+    border-radius: 5px;
+    color: #fff;
+
+    @media(max-width: 900px) {
+        display: none;
+    }
+`

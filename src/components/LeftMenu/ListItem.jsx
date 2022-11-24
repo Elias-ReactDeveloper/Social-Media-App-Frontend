@@ -1,4 +1,5 @@
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import styled from "styled-components";
 
 const ListItem = ({ IconComponent, text }) => {
     return ( 
@@ -6,9 +7,17 @@ const ListItem = ({ IconComponent, text }) => {
             <ListItemIcon>
                 <IconComponent />
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <StyledListItemText primary={text} />
         </ListItemButton>
      );
 }
  
 export default ListItem;
+
+const StyledListItemText = styled(ListItemText)`
+    @media(max-width: 900px) {
+        & {
+            display: none;
+        }
+    }
+`
