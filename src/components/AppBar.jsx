@@ -1,17 +1,10 @@
 import { useState } from 'react';
-
-import { styled as st } from '@mui/material/styles';
 import styled from 'styled-components'
 
 import SearchIcon from '@mui/icons-material/Search';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { Typography, TextField, InputAdornment, Box, Badge, IconButton, Menu, MenuItem } from '@mui/material';
-
-const StyledSearchIcon = st(SearchIcon)(({theme}) => ({
-    color: "#fff"
-}))
-
 
 const AppBar = () => {
     const [anchorEl, setAnchorEl] = useState(null) 
@@ -54,6 +47,7 @@ const AppBar = () => {
             <StyledTextField 
                 placeholder='Search...'
                 size="small"
+                sx={{ display: { xs: 'none', sm: 'inherit' } }}   
                 InputProps={{
                     style: { color: "#fff"},
                     startAdornment: <InputAdornment position="start">
@@ -111,9 +105,8 @@ const StyledTextField = styled(TextField)`
     background-color: #5D6AC1;
     width: 500px;
     border-radius: 5px;
-    color: #fff;
+`
 
-    @media(max-width: 900px) {
-        display: none;
-    }
+const StyledSearchIcon = styled(SearchIcon)`
+    color: #fff;
 `

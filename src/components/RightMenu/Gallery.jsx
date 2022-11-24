@@ -24,11 +24,11 @@ const Gallery = () => {
         >
             { images.map((image) => (
                 <ImageListItem key={image.img} cols={image.cols || 1} rows={image.rows || 1}>
-                        <img 
-                            {...srcset(image.img, 121, image.rows, image.cols)} 
-                            alt={image.title}
-                            loading="lazy" 
-                        />
+                    <img 
+                        {...srcset(image.img, 121, image.rows, image.cols)} 
+                        alt={image.title}
+                        loading="lazy" 
+                    />
                 </ImageListItem>
             ))}
         </ImageList>

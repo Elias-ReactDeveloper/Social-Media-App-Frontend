@@ -43,9 +43,8 @@ const Container = styled.div`
     bottom: 0;
 
     @media(max-width: 900px) {
-        & {
-            width: 90px;
-        }
+        width: 60px;
+        padding-left: 0;
     }
 `
 

@@ -18,9 +18,7 @@ const Container = styled.div`
     padding-top: 20px;
 
     @media(max-width: 900px) {
-        & {
-            width: calc(100% - 110px); /* - responsive left menu*/
-            margin-left : 100px;
-        }
+        width: calc(100% - 80px); /* - responsive left menu*/
+        margin-left : 70px;
     }
 `
