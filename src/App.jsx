@@ -5,7 +5,6 @@ import LeftMenu from "./components/LeftMenu/LeftMenu"
 import CreatePost from "./components/Posts/CreatePost"
 import AddPostButton from "./components/Posts/AddPostButton"
 import { useState } from "react"
-import SucessMessage from "./components/Posts/SucessMessage"
 
 function App() {
 

@@ -1,25 +1,37 @@
 import { Box, FormControl, FormControlLabel, FormLabel, MenuItem, Modal, RadioGroup, Radio, Select, TextField, Typography, Button } from "@mui/material";
 import { useState } from "react";
 import styled from "styled-components";
-import SucessMessage from "./SucessMessage";
+import Message from "./Message";
 
 const CreatePost = ({ openAddPost, handleCloseAddPost }) => {
     
     const [visibility, setVisibility] = useState('Public')
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
 
     const [openSucessMessage, setOpenSucessMessage] = useState(false);
+    const [openErrorMessage, setOpenErrorMessage] = useState(false);
+
+    const handleCloseErrorMessage = () => {
+        setOpenErrorMessage(false)
+    }
+    
+    const handleOpenErrorMessage = () => {
+        setOpenErrorMessage(true)
+        setTimeout(handleCloseErrorMessage, 3000)
+    }
 
     const handleCloseSucessMessage = () => {
         setOpenSucessMessage(false)
     }
     
-    const handleOpenSucessMessage = () => {
+    const handleCreatePost = () => {
+        if(!title || !description) {
+            handleOpenErrorMessage()
+            return
+        }
         setOpenSucessMessage(true)
         setTimeout(handleCloseSucessMessage, 3000)
-    }
-
-    const handleVisibilityChange = (event) => {
-        setVisibility(event.target.value)
     }
 
     return ( 
@@ -33,17 +45,19 @@ const CreatePost = ({ openAddPost, handleCloseAddPost }) => {
                     <TextField
                         label="Title"
                         variant="standard"
+                        onChange={(e) => setTitle(e.target.value)}
                         sx={{ width: "100%" }}
                     />
                     <TextField
                         label="Description"
+                        onChange={(e) => setDescription(e.target.value)}
                         sx={{ width: "100%" }}
                     />
                     <Select
                         label="Visibility"
                         variant="standard"
                         value={visibility}
-                        onChange={handleVisibilityChange}
+                        onChange={(e) => setVisibility(e.target.value)}
                         sx={{ width: "80px" }}
                     >
                         <MenuItem value="Public">Public</MenuItem>
@@ -69,17 +83,27 @@ const CreatePost = ({ openAddPost, handleCloseAddPost }) => {
                         </RadioGroup>
                     </Box>
                     <Box>
-                        <Button variant="outlined" color="success" onClick={handleOpenSucessMessage} sx={{marginRight: "5px"}}>CREATE</Button>
+                        <Button variant="outlined" color="success" onClick={handleCreatePost} sx={{marginRight: "5px"}}>CREATE</Button>
                         <Button variant="outlined" color="error" onClick={handleCloseAddPost}>CANCEL</Button>
                     </Box>
                 </StyledBox>
 
             </StyledModal>
 
-            <SucessMessage handleCloseSucessMessage={handleCloseSucessMessage} openSucessMessage={openSucessMessage}  />
-        
+            <Message 
+                handleClose={handleCloseSucessMessage} 
+                open={openSucessMessage}  
+                message="Post added sucessfuly!"
+                severity="success"  
+            />
 
-        
+            <Message 
+                handleClose={handleCloseErrorMessage} 
+                open={openErrorMessage}  
+                message="Info is missing!"
+                severity="error"  
+            />
+           
         </div>
     );
 }
