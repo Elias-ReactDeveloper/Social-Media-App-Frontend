@@ -32,6 +32,9 @@ const CreatePost = ({ openAddPost, handleCloseAddPost }) => {
         }
         setOpenSucessMessage(true)
         setTimeout(handleCloseSucessMessage, 3000)
+        setVisibility('Public')
+        setTitle('')
+        setDescription('')
     }
 
     return ( 
@@ -46,11 +49,13 @@ const CreatePost = ({ openAddPost, handleCloseAddPost }) => {
                         label="Title"
                         variant="standard"
                         onChange={(e) => setTitle(e.target.value)}
+                        value={title}
                         sx={{ width: "100%" }}
                     />
                     <TextField
                         label="Description"
                         onChange={(e) => setDescription(e.target.value)}
+                        value={description}
                         sx={{ width: "100%" }}
                     />
                     <Select

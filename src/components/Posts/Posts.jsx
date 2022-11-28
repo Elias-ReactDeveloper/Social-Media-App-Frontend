@@ -1,11 +1,10 @@
 import styled from "styled-components"
 import Post from './Post'
+import postsJson from './assets/posts.json'
 
 const Posts = () => {
     return ( <Container>
-        <Post />
-        <Post />
-        <Post />
+        { postsJson.map(post => <Post post={post} />) }
       </Container> 
     );
 }
