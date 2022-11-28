@@ -37,7 +37,6 @@ function App() {
         handleCloseAddPost={handleCloseAddPost} 
         handleOpenAddPost={handleOpenAddPost}
       />
-
     </div>
   )
 }
